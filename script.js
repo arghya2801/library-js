@@ -40,7 +40,7 @@ document.getElementById('book-form').addEventListener('submit', function(event) 
     myLibrary.push(newBook);
     displayBooks(newBook);
 
-    // console.log(myLibrary);
+    console.log(myLibrary);
 
     document.getElementById('book-form').reset();
 })
@@ -83,10 +83,22 @@ const displayBooks = book => {
     changeStatusButton.classList.add('change-status');
     changeStatusButton.textContent = 'Change Read Status';
 
+    changeStatusButton.addEventListener('click', function() {
+        book.read = !book.read;
+        status.textContent = `Status: ${book.read ? 'Read' : 'Not Read'}`;
+        console.log(`Updated status for "${book.title}" to ${book.read ? 'Read' : 'Not Read'}`);
+    });
+    
     const removeButton = document.createElement('button');
     removeButton.classList.add('remove-item');
     removeButton.textContent = 'Remove';
-
+    
+    removeButton.addEventListener('click', function() {
+        myLibrary.splice(myLibrary.indexOf(book), 1);
+        bookCard.remove();
+        console.log(`Removed "${book.title}" from library.`);
+    });
+    
     cardButtons.append(changeStatusButton, removeButton);
     bookCard.append(cardButtons);
     bookList.append(bookCard);
