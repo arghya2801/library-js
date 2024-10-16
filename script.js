@@ -31,6 +31,8 @@ const addBookToLibrary = (event) => {
 
 // document.body.appendChild(newElement);
 
+const bookList = document.querySelector('#book-list');
+
 const displayBooks = book => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card')
@@ -55,4 +57,19 @@ const displayBooks = book => {
     bookInfo.append(status);
 
     bookCard.append(bookInfo);
+
+    const cardButtons = document.createElement('div');
+    cardButtons.classList.add('card-buttons')
+
+    const changeStatusButton = document.createElement('button');
+    changeStatusButton.classList.add('change-status');
+    changeStatusButton.textContent = 'Change Read Status';
+
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove-item');
+    removeButton.textContent = 'Remove';
+
+    cardButtons.append(changeStatusButton, removeButton);
+    bookCard.append(cardButtons);
+    bookList.append(bookCard);
 }
