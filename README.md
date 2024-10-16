@@ -1,4 +1,6 @@
-# library-js
+# Library App
 A simple book management software (without databases) project
 
-Reference - https://lesterpaz99.github.io/vanilla-library-app/
+## Roadmap
+- [ ] Make the aesthetics better
+- [ ] Integrate database features
