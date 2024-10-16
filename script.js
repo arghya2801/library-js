@@ -90,6 +90,7 @@ const displayBooks = book => {
     cardButtons.append(changeStatusButton, removeButton);
     bookCard.append(cardButtons);
     bookList.append(bookCard);
+
 }
 
 myLibrary.forEach(displayBooks);
