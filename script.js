@@ -21,11 +21,38 @@ function Book(title, author, pages, read, id) {
 }
 
 const addBookToLibrary = (event) => {
-    
+
 }
-const newElement = document.createElement("h1");
 
-newElement.textContent = "Hello, World!";
-newElement.id = "myHeading";
+// const newElement = document.createElement("h1");
 
-document.body.appendChild(newElement);
+// newElement.textContent = "Hello, World!";
+// newElement.id = "myHeading";
+
+// document.body.appendChild(newElement);
+
+const displayBooks = book => {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card')
+
+    const bookInfo = document.createElement('div');
+    bookInfo.classList.add('book-info')
+
+    const title = document.createElement('p');
+    title.textContent = `Title: ${book.title}`;
+    bookInfo.append(title);
+
+    const author = document.createElement('p');
+    author.textContent = `Author: ${book.author}`;
+    bookInfo.append(author);
+
+    const pages = document.createElement('p');
+    pages.textContent = `Pages: ${book.pages}`;
+    bookInfo.append(pages);
+
+    const status = document.createElement('p');
+    status.textContent = `Status: ${book.read ? 'Read' : 'Not Read'}`;
+    bookInfo.append(status);
+
+    bookCard.append(bookInfo);
+}
