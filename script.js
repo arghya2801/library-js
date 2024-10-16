@@ -45,6 +45,14 @@ document.getElementById('book-form').addEventListener('submit', function(event) 
     document.getElementById('book-form').reset();
 })
 
+const hideFormSection = () => {
+    const formSection = document.querySelector('#add-book-form-section');
+    formSection.classList.toggle('hidden');
+}
+
+const addBookButton = document.querySelector('.add-book');
+addBookButton.addEventListener('click', hideFormSection);
+
 const addBookToLibrary = (event) => {
 
 }
@@ -106,3 +114,4 @@ const displayBooks = book => {
 }
 
 myLibrary.forEach(displayBooks);
+hideFormSection();
