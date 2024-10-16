@@ -113,11 +113,11 @@ body {
     font-weight: 900;
 }
 
-.book-card #change-status {
+.book-card .change-status {
     background-color: rgb(39, 167, 82);
 }
 
-.book-card #remove-item {
+.book-card .remove-item {
     background-color: red;
 }
 
