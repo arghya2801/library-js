@@ -1,14 +1,14 @@
 const myLibrary = [{
     title: "Stormlight Archive",
     author: "Brandon Sanderson",
-    pages: 1200, // Changed to number
-    read: true, // Changed to boolean
+    pages: 1200,
+    read: true,
     id: 1,
 }, {
     title: "Re: Zero",
     author: "Tappei Nagatsuki",
-    pages: 9000, // Changed to number
-    read: true, // Changed to boolean
+    pages: 9000,
+    read: true,
     id: 2,
 }];
 
@@ -20,18 +20,36 @@ function Book(title, author, pages, read, id) {
     this.id = id;
 }
 
+function getNextId() {
+    if (myLibrary.length === 0) return 1;
+    const lastBook = myLibrary[myLibrary.length - 1]; 
+    return lastBook.id + 1;
+}
+
+document.getElementById('book-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').checked;
+
+    const newBook = new Book(title, author, pages, read, getNextId());
+
+    console.log(newBook);
+    myLibrary.push(newBook);
+    displayBooks(newBook);
+
+    // console.log(myLibrary);
+
+    document.getElementById('book-form').reset();
+})
+
 const addBookToLibrary = (event) => {
 
 }
 
-// const newElement = document.createElement("h1");
-
-// newElement.textContent = "Hello, World!";
-// newElement.id = "myHeading";
-
-// document.body.appendChild(newElement);
-
-const bookList = document.querySelector('#book-list');
+const bookList = document.querySelector('.book-list');
 
 const displayBooks = book => {
     const bookCard = document.createElement('div');
@@ -73,3 +91,5 @@ const displayBooks = book => {
     bookCard.append(cardButtons);
     bookList.append(bookCard);
 }
+
+myLibrary.forEach(displayBooks);
