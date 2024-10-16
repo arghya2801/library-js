@@ -1,6 +1,9 @@
 * {
     font-family: 'Courier New', Courier, monospace;
 }
+body {
+    background-color: rgb(238, 251, 255);
+}
 
 .header {
     margin: 30px;
@@ -69,7 +72,7 @@
     margin-right: 10px;
   }
   
-  .submit-btn {
+  .submit-button {
     color: white;
     background-color: rgb(54, 64, 206);
     padding: 15px;
@@ -79,10 +82,45 @@
     transition: background-color 0.3s ease;
   }
   
-  .submit-btn:hover {
+  .submit-button:hover {
     background-color: rgb(79, 90, 242);
   }
   
   /* .hidden {
     display: none;
   } */
+
+.book-list {
+    margin: 30px 20px 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-card button {
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: 900;
+}
+
+.book-card #change-status {
+    background-color: rgb(39, 167, 82);
+}
+
+.book-card #remove-item {
+    background-color: red;
+}
+
+.book-card button:hover {
+    opacity: 0.85;
+}
